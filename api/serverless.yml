@@ -1,0 +1,42 @@
+service: service-api
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  profile: aws1
+  region: ap-northeast-2
+  tracing: true
+  stage: ${opt:stage, 'dev'}
+  memorySize: 256
+  iamRoleStatements:
+    - Effect: Allow # xray permissions (required)
+      Action:
+        - xray:PutTraceSegments
+        - xray:PutTelemetryRecords
+      Resource: "*"
+    - Effect: Allow
+      Action:
+        - lambda:InvokeFunction
+      Resource:
+        - arn:aws:lambda:ap-northeast-2:536772866969:function:service-back-${self:custom.stage}-app
+  environment:
+    NODE_ENV: ${self:provider.stage}
+
+package:
+  individually: true
+
+custom:
+  stage: ${opt:stage, self:provider.stage}
+
+functions:
+  app:
+    handler: app/lambda.handler
+    events:
+      - http:
+          path: api
+          method: get
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-plugin-optimize
+  - serverless-plugin-tracing

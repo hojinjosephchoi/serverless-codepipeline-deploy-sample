@@ -1,0 +1,15 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - cd api
+      - npm install
+      - cd ../back
+      - npm install
+  build:
+    commands:
+      - cd api
+      - npm run deploy:dev
+      - cd ../back
+      - npm run deploy:dev
