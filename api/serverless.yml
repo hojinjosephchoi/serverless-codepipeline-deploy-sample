@@ -3,7 +3,7 @@ service: service-api
 provider:
   name: aws
   runtime: nodejs8.10
-  profile: aws1
+  # profile: aws1
   region: ap-northeast-2
   tracing: true
   stage: ${opt:stage, 'dev'}
