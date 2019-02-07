@@ -9,7 +9,7 @@ phases:
       - npm install
   build:
     commands:
-      - cd api
+      - cd ../api
       - npm run deploy:dev
       - cd ../back
       - npm run deploy:dev
