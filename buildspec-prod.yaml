@@ -3,13 +3,10 @@ version: 0.2
 phases:
   install:
     commands:
-      - cd api
-      - npm install
-      - cd ../back
-      - npm install
+      - ./tools/install_all_node_modules.sh
   build:
     commands:
-      - cd ../api
+      - cd $CODEBUILD_SRC_DIR/services/api
       - npm run deploy:prod
-      - cd ../back
+      - cd $CODEBUILD_SRC_DIR/services/back
       - npm run deploy:prod
