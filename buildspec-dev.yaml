@@ -7,7 +7,7 @@ phases:
       - chmod +x ./tools/db/start.sh
       - chmod +x ./tools/db/update-mysql-grant.sh
       - ./tools/install_all_node_modules.sh
-      - ./tools/db/start.sh
+      - sudo ./tools/db/start.sh
       - ./tools/db/update-mysql-grant.sh
   build:
     commands:
