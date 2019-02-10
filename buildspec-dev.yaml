@@ -3,11 +3,15 @@ version: 0.2
 phases:
   install:
     commands:
+      - nohup /usr/local/bin/dockerd --host=unix:///var/run/docker.sock --host=tcp://0.0.0.0:2375 --storage-driver=overlay&
+      - timeout -t 15 sh -c "until docker info; do echo .; sleep 1; done"
       # - chmod +x ./tools/install_all_node_modules.sh
+  pre_build:
+    commands:
       - chmod +x ./tools/db/start.sh
       # - chmod +x ./tools/db/update-mysql-grant.sh
       # - ./tools/install_all_node_modules.sh
-      - sudo ./tools/db/start.sh
+      - ./tools/db/start.sh
       # - ./tools/db/update-mysql-grant.sh
   build:
     commands:
