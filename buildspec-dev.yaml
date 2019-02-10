@@ -3,19 +3,19 @@ version: 0.2
 phases:
   install:
     commands:
-      # - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
-      # - sudo apt-get install -y nodejs
+      - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+      - sudo apt-get install -y nodejs
 
   pre_build:
     commands:
-      # - chmod +x ./tools/install_all_node_modules.sh
-      # - ./tools/install_all_node_modules.sh
+      - chmod +x ./tools/install_all_node_modules.sh
+      - ./tools/install_all_node_modules.sh
       - chmod +x ./tools/db/start.sh
       - ./tools/db/start.sh
-      - cd $CODEBUILD_SRC_DIR/tools/db
-      - docker-compose -p lululala exec -T mysql mysql -version
-      - chmod +x ./tools/db/update-mysql-grant.sh
-      - ./tools/db/update-mysql-grant.sh
+      # - cd $CODEBUILD_SRC_DIR/tools/db
+      # - docker-compose -p lululala exec -T mysql mysql -version
+      # - chmod +x ./tools/db/update-mysql-grant.sh
+      # - ./tools/db/update-mysql-grant.sh
 
   build:
     commands:
