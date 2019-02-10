@@ -5,14 +5,16 @@ phases:
     commands:
       - curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
       - sudo apt-get install -y nodejs
-      # - chmod +x ./tools/install_all_node_modules.sh
+
   pre_build:
     commands:
+      - chmod +x ./tools/install_all_node_modules.sh
+      - ./tools/install_all_node_modules.sh
       - chmod +x ./tools/db/start.sh
-      # - chmod +x ./tools/db/update-mysql-grant.sh
-      # - ./tools/install_all_node_modules.sh
       - ./tools/db/start.sh
-      # - ./tools/db/update-mysql-grant.sh
+      - chmod +x ./tools/db/update-mysql-grant.sh
+      - ./tools/db/update-mysql-grant.sh
+
   build:
     commands:
       - cd $CODEBUILD_SRC_DIR/services/api
