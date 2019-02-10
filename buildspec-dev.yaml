@@ -3,12 +3,12 @@ version: 0.2
 phases:
   install:
     commands:
-      - chmod +x ./tools/install_all_node_modules.sh
+      # - chmod +x ./tools/install_all_node_modules.sh
       - chmod +x ./tools/db/start.sh
-      - chmod +x ./tools/db/update-mysql-grant.sh
-      - ./tools/install_all_node_modules.sh
+      # - chmod +x ./tools/db/update-mysql-grant.sh
+      # - ./tools/install_all_node_modules.sh
       - sudo ./tools/db/start.sh
-      - ./tools/db/update-mysql-grant.sh
+      # - ./tools/db/update-mysql-grant.sh
   build:
     commands:
       - cd $CODEBUILD_SRC_DIR/services/api
