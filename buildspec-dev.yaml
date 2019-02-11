@@ -12,13 +12,14 @@ phases:
       # - sudo apt update
       # - sudo apt install -y docker-ce
       # - sudo apt install -y docker-compose
+      - docker-compose -v
+
+  pre_build:
+    commands:
       - chmod +x ./tools/db/start.sh
       - sudo ./tools/db/start.sh
       - chmod +x ./tools/db/update-mysql-grant.sh
       - sudo ./tools/db/update-mysql-grant.sh
-
-  pre_build:
-    commands:
       # - chmod +x ./tools/install_all_node_modules.sh
       # - ./tools/install_all_node_modules.sh
       # - cd $CODEBUILD_SRC_DIR/tools/db
