@@ -20,8 +20,8 @@ phases:
 
   pre_build:
     commands:
-      - chmod +x ./tools/db/start.sh
-      - ./tools/db/start.sh
+      # - chmod +x ./tools/db/start.sh
+      # - ./tools/db/start.sh
       # - mysql -h 127.0.0.1 -P 13306 -u root -p
       - chmod +x ./tools/db/update-mysql-grant.sh
       - sudo ./tools/db/update-mysql-grant.sh
