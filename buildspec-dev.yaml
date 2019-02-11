@@ -18,9 +18,9 @@ phases:
   pre_build:
     commands:
       - chmod +x ./tools/db/start.sh
-      - sudo ./tools/db/start.sh
+      - ./tools/db/start.sh
       - chmod +x ./tools/db/update-mysql-grant.sh
-      - sudo ./tools/db/update-mysql-grant.sh
+      - ./tools/db/update-mysql-grant.sh
       # - chmod +x ./tools/install_all_node_modules.sh
       # - ./tools/install_all_node_modules.sh
       # - cd $CODEBUILD_SRC_DIR/tools/db
