@@ -12,6 +12,7 @@ phases:
       # - sudo apt update
       # - sudo apt install -y docker-ce
       # - sudo apt install -y docker-compose
+      - docker -v
       - docker-compose -v
 
   pre_build:
