@@ -12,17 +12,17 @@ phases:
       # - sudo apt update
       # - sudo apt install -y docker-ce
       # - sudo apt install -y docker-compose
+      - chmod +x ./tools/db/start.sh
+      - sudo ./tools/db/start.sh
+      - chmod +x ./tools/db/update-mysql-grant.sh
+      - sudo ./tools/db/update-mysql-grant.sh
 
   pre_build:
     commands:
       # - chmod +x ./tools/install_all_node_modules.sh
       # - ./tools/install_all_node_modules.sh
-      - chmod +x ./tools/db/start.sh
-      - sudo ./tools/db/start.sh
       # - cd $CODEBUILD_SRC_DIR/tools/db
       # - docker-compose -p lululala exec -T mysql mysql -version
-      - chmod +x ./tools/db/update-mysql-grant.sh
-      - sudo ./tools/db/update-mysql-grant.sh
 
   build:
     commands:
