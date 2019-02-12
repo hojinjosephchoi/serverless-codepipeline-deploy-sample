@@ -22,15 +22,12 @@ phases:
     commands:
       - chmod +x ./tools/db/start.sh
       - ./tools/db/start.sh
-      # - mysql -h 127.0.0.1 -P 13306 -u root -p
       - docker ps
       - sleep 1m
       - chmod +x ./tools/db/update-mysql-grant.sh
-      - sudo ./tools/db/update-mysql-grant.sh
-      # - chmod +x ./tools/install_all_node_modules.sh
-      # - ./tools/install_all_node_modules.sh
-      # - cd $CODEBUILD_SRC_DIR/tools/db
-      # - docker-compose -p lululala exec -T mysql mysql -version
+      - ./tools/db/update-mysql-grant.sh
+      - chmod +x ./tools/install_all_node_modules.sh
+      - ./tools/install_all_node_modules.sh
 
   build:
     commands:
