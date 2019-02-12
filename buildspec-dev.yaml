@@ -8,6 +8,10 @@ phases:
       - docker-compose -v
       # - sudo apt-get update && sudo apt-get -y dist-upgrade
       # - sudo apt-get install -y mysql-client
+    finally:
+      - echo "=========================="
+      - echo "install nothing"
+      - echo "=========================="
 
   pre_build:
     commands:
@@ -19,11 +23,19 @@ phases:
       - ./tools/db/update-mysql-grant.sh
       - chmod +x ./tools/install_all_node_modules.sh
       - ./tools/install_all_node_modules.sh
+    finally:
+      - echo "=========================="
+      - echo "mysql on docker ready, npm modules installed"
+      - echo "=========================="
 
   build:
     commands:
       - chmod +x ./tools/services/test-all-services.sh
       - ./tools/services/test-all-services.sh
+    finally:
+      - echo "=========================="
+      - echo "test on all services completed"
+      - echo "=========================="
 
   post_build:
     commands:
@@ -31,3 +43,7 @@ phases:
       - npm run deploy:dev
       - cd $CODEBUILD_SRC_DIR/services/back
       - npm run deploy:dev
+    finally:
+      - echo "=========================="
+      - echo "build to all services completed"
+      - echo "=========================="

@@ -6,6 +6,3 @@ export async function handler(event, context) {
     result: await MyModelService.getMyModel(),
   };
 }
-(async () => {
-  console.log((await handler(null, null)).result);
-})();
