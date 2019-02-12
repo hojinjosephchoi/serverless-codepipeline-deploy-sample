@@ -20,7 +20,7 @@ provider:
 
 package:
   individually: true
-  
+
 custom:
   stage: ${opt:stage, self:provider.stage}
 

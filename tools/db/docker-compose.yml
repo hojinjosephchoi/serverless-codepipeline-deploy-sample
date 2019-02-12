@@ -7,13 +7,13 @@ services:
   mysql:
     image: mysql:5.7
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
-    container_name: lululala-mysql
+    container_name: cicdpoc-mysql
     networks:
       - network
     ports:
       - 13306:3306
     environment:
-      - MYSQL_ROOT_PASSWORD=lululala
+      - MYSQL_ROOT_PASSWORD=dbpasswrd
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./mysql/init:/docker-entrypoint-initdb.d

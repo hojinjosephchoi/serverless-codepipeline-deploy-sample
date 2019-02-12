@@ -1,4 +1,4 @@
 #!/bin/bash
 SELF="${BASH_SOURCE[0]}"
 cd `dirname "$SELF"`
-docker-compose -p lululala up -d --build
+docker-compose -p cicdpoc up -d --build

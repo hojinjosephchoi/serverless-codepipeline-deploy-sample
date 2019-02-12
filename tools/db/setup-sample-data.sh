@@ -12,4 +12,4 @@ SERVICES=(
 #   (cd ../../services/$SERVICE && node tools/migrate)
 # done
 
-docker-compose -p lululala exec mysql sh /tools/setup-sample-data.sh
+docker-compose -p cicdpoc exec mysql sh /tools/setup-sample-data.sh
