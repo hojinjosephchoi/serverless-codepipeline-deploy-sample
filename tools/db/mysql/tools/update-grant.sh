@@ -1,3 +1,2 @@
 #!/bin/bash
-# mysql -plululala < /docker-entrypoint-initdb.d/1-grant.sql
-mysql -plululala -v
+mysql -plululala < /docker-entrypoint-initdb.d/1-grant.sql
