@@ -11,7 +11,7 @@ export async function handler(event, context) {
       FunctionName: `service-back-${environment}-app`,
       Payload: JSON.stringify({}),
     }).promise();
-    console.log('[api] >> after call back service');
+    console.log('[api] >> after call back service..');
     return {
       statusCode: 200,
       body: JSON.stringify(result.Payload),
