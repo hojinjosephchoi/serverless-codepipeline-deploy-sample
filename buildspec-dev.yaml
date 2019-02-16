@@ -8,6 +8,15 @@ phases:
       - docker-compose -v
       # - sudo apt-get update && sudo apt-get -y dist-upgrade
       # - sudo apt-get install -y mysql-client
+
+      # npm configuration
+      # here i configure npm to set the cache at /root/.npm
+      - npm config -g set prefer-offline true
+      - npm config -g set cache /root/.npm
+      - npm config get cache
+
+      - cd ${CODEBUILD_SRC_DIR}
+
     finally:
       - echo "=========================="
       - echo "install nothing"
@@ -47,3 +56,7 @@ phases:
       - echo "=========================="
       - echo "build to all services completed"
       - echo "=========================="
+
+cache:
+  paths:
+    - /root/.npm/**/*
