@@ -17,6 +17,8 @@ phases:
 
       - cd ${CODEBUILD_SRC_DIR}
 
+      - echo ${CODEBUILD_SOURCE_VERSION}
+
     finally:
       - echo "=========================="
       - echo "install nothing"
