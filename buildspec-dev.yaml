@@ -6,6 +6,7 @@ phases:
       - echo $USER
       - docker -v
       - docker-compose -v
+      - docker version
       # - sudo apt-get update && sudo apt-get -y dist-upgrade
       # - sudo apt-get install -y mysql-client
 
